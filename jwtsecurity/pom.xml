@@ -8,15 +8,17 @@
 		<version>2.3.12.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.eric</groupId>
-	<artifactId>ZuulGatewayDemo</artifactId>
+	<groupId>com.virtusa</groupId>
+	<artifactId>jwtsecurity</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ZuulGatewayDemo</name>
+	<name>jwtsecurity</name>
 	<description>Demo project for Spring Boot</description>
+
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>Hoxton.SR6</spring-cloud.version>
+		 <spring-cloud.version>Hoxton.SR6</spring-cloud.version> 
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -24,40 +26,58 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-rest-hal-explorer</artifactId>
+			<artifactId>spring-data-rest-hal-browser</artifactId>
 		</dependency>
-
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-vault-config</artifactId>
+		</dependency>
+		 <dependency> 
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		<!-- Zuul -->
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
 		</dependency>
-		
-		 	<!-- <dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
-		</dependency> -->
+		<dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.8.0</version>
+        </dependency>
 	</dependencies>
-	<dependencyManagement>
+<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -68,7 +88,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<build>
 		<plugins>
 			<plugin>
