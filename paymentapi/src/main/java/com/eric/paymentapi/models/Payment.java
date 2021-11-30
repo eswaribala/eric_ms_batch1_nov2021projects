@@ -2,11 +2,16 @@ package com.eric.paymentapi.models;
 
 import java.time.LocalDate;
 
-public class Payment {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-	private long orderId;
-	private LocalDate orderDate;
-	private long orderAmount;
+import lombok.Data;
+@Data
+@Document(collection = "Payments")
+public class Payment {
+    @Id
+	private long transactionId;
 	private boolean paymentStatus;
 	private PaymentMode paymentMode;
+	private Order order;
 }
