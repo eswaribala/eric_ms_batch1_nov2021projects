@@ -19,11 +19,11 @@ public class PaymentController {
    @Autowired
 	private PaymentService paymentService;
 	  
-    @PostMapping("/payments/transactionId")
+    @PostMapping("/payments/{transactionId}")
 
-    public ResponseEntity<?> publishData(@PathVariable("transactionId") long transactionId){
+    public ResponseEntity<?> publishData(@PathVariable("transactionId") String transactionId){
     	
-    	 this.paymentService.sendMessage(transactionId);
+    	 this.paymentService.sendMessage(Long.parseLong(transactionId));
     	 return ResponseEntity.status(HttpStatus.ACCEPTED).body("Payment Details Published");
     }
 }

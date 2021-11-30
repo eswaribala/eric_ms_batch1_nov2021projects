@@ -55,7 +55,7 @@ public class PaymentService {
 
             @Override
             public void onFailure(Throwable ex) {
-            	log.error("Unable to send delivery Date for Product : " + payment.getTransactionId(), ex);
+            	log.error("Unable to send Payment Details : " + payment.getTransactionId(), ex);
               // status=false;
             }
        });

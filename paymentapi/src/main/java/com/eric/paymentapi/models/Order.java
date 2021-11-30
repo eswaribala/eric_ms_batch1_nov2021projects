@@ -1,7 +1,5 @@
 package com.eric.paymentapi.models;
 
-
-
 import lombok.Data;
 @Data
 public class Order {
