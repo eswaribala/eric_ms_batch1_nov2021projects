@@ -24,10 +24,10 @@ services:
       restart_policy:
         condition: on-failure
         delay: 5s
-        max_attempts: 3
-        window: 120s
+        max_attempts: 15
+        window: 50s
     ports:
-      - 6060:7070
+      - 8060-8070:7070
     volumes:
       - /data/compose-app
       
