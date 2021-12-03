@@ -13,7 +13,7 @@ pipeline{
        steps{
        
           bat "mvn -f ./inventoryapidocker clean install -DskipTests"
-          bat "docker build -f inventoryapidocker/dockerfile -t invapp ./inventoryapidocker"
+          bat "cd inventoryapidocker  & docker-compose up -d"
                                    
        }
    
